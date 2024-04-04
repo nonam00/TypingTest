@@ -43,6 +43,8 @@ namespace TypingTest
             InitializeComponent();
 
             InitializeDictionary();
+
+            input.Focus();
         }
 
         private void input_KeyDown(object sender, KeyEventArgs e)

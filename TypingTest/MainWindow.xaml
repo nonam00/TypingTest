@@ -6,10 +6,26 @@
         xmlns:local="clr-namespace:TypingTest"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
+    <StackPanel Margin="0 0 0 20"
+                VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock x:Name="speedText"
+                       Margin="10"
+                       FontSize="15"
+                       Text="Speed:"/>
+            <TextBlock x:Name="timeText"
+                       Margin="10"
+                       FontSize="15"
+                       Text="Time:"/>
+        </StackPanel>
         <TextBox x:Name="input"
+                 Margin="10 10 10 30"
+                 Height="30"
+                 FontSize="20"
+                 VerticalContentAlignment="Center"
                  PreviewKeyDown="input_KeyDown"/>
-        <Grid HorizontalAlignment="Center"
+        <Grid Margin="10"
+              HorizontalAlignment="Center"
               VerticalAlignment="Center"
               Width="auto"
               Height="auto">
@@ -146,5 +162,10 @@
             </StackPanel>
 
         </Grid>
+        <Button x:Name="startButton"
+                Margin="20"
+                Height="50"
+                Width="100"
+                Content="Start"/>
     </StackPanel>
 </Window>
