@@ -19,10 +19,12 @@
                        Text="Time:"/>
         </StackPanel>
         <TextBox x:Name="input"
+                 IsEnabled="False"
                  Margin="10 10 10 30"
                  Height="30"
                  FontSize="20"
                  VerticalContentAlignment="Center"
+                 PreviewTextInput="input_PreviewTextInput"
                  PreviewKeyDown="input_KeyDown"/>
         <Grid Margin="10"
               HorizontalAlignment="Center"
@@ -166,6 +168,7 @@
                 Margin="20"
                 Height="50"
                 Width="100"
-                Content="Start"/>
+                Content="Start"
+                Click="startButton_Click"/>
     </StackPanel>
 </Window>
