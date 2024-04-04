@@ -7,17 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-        <TextBox />
+        <TextBox x:Name="input"
+                 PreviewKeyDown="input_KeyDown"/>
         <Grid HorizontalAlignment="Center"
               VerticalAlignment="Center"
               Width="auto"
               Height="auto">
             <Grid.Resources>
+                <ControlTemplate TargetType="Button" x:Key="keyButton">
+                    <Border x:Name="btnBorder"
+                            CornerRadius="4"
+                            BorderBrush="White"
+                            BorderThickness="1"
+                            Background="Black">
+                        <ContentControl Margin="5"
+                                        Width="{TemplateBinding Width}"
+                                        FontSize="15"
+                                        Foreground="White"
+                                        Content="{TemplateBinding Content}">
+                        </ContentControl>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="true">
+                            <Setter TargetName="btnBorder" Property="Background" Value="Gray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
                 <Style TargetType="Button">
                     <Style.Setters>
-                        <Setter Property="Padding" Value="10 10 10 10"/>
+                        <Setter Property="IsEnabled" Value="False"/>
                         <Setter Property="Width" Value="35"/>
-                        <Setter Property="Height" Value="auto"/>
+                        <Setter Property="Template" Value="{StaticResource keyButton}"/>
                     </Style.Setters>
                 </Style>
                 <Style TargetType="StackPanel">
@@ -26,6 +46,7 @@
                     </Style.Setters>
                 </Style>
             </Grid.Resources>
+            
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -33,6 +54,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            
             <StackPanel x:Name="row1"
                         Grid.Row="0"
                         Orientation="Horizontal">
@@ -48,8 +70,8 @@
                 <Button Content="9"/>
                 <Button Content="0"/>
                 <Button Content="-"/>
-                <Button Content="="/>
-                <Button HorizontalAlignment="Left"
+                <Button Content="+"/>
+                <Button HorizontalContentAlignment="Right"
                         Width="75"
                         Content="&lt;-"/>
             </StackPanel>
@@ -59,17 +81,17 @@
                 <Button Width="65"
                         HorizontalAlignment="Left"
                         HorizontalContentAlignment="Left"
-                        Content="TAB"/>
-                <Button Content="q"/>
-                <Button Content="w"/>
-                <Button Content="e"/>
-                <Button Content="r"/>
-                <Button Content="t"/>
-                <Button Content="y"/>
-                <Button Content="u"/>
-                <Button Content="i"/>
-                <Button Content="o"/>
-                <Button Content="p"/>
+                        Content="Tab"/>
+                <Button Content="Q"/>
+                <Button Content="W"/>
+                <Button Content="E"/>
+                <Button Content="R"/>
+                <Button Content="T"/>
+                <Button Content="Y"/>
+                <Button Content="U"/>
+                <Button Content="I"/>
+                <Button Content="O"/>
+                <Button Content="P"/>
                 <Button Content="["/>
                 <Button Content="]"/>
                 <Button Content="\"/>
@@ -79,16 +101,16 @@
                         Orientation="Horizontal">
                 <Button Width="75"
                         HorizontalContentAlignment="Left"
-                        Content="caps lock"/>
-                <Button Content="a"/>
-                <Button Content="s"/>
-                <Button Content="d"/>
-                <Button Content="f"/>
-                <Button Content="g"/>
-                <Button Content="h"/>
-                <Button Content="j"/>
-                <Button Content="k"/>
-                <Button Content="l"/>
+                        Content="Caps lock"/>
+                <Button Content="A"/>
+                <Button Content="S"/>
+                <Button Content="D"/>
+                <Button Content="F"/>
+                <Button Content="G"/>
+                <Button Content="H"/>
+                <Button Content="J"/>
+                <Button Content="K"/>
+                <Button Content="L"/>
                 <Button Content=";"/>
                 <Button Content="'"/>
                 <Button HorizontalAlignment="Left"
@@ -101,17 +123,17 @@
                 <Button Content="Shift"
                         HorizontalContentAlignment="Left"
                         Width="85"/>
-                <Button Content="z"/>
-                <Button Content="x"/>
-                <Button Content="c"/>
-                <Button Content="v"/>
-                <Button Content="b"/>
-                <Button Content="n"/>
-                <Button Content="m"/>
+                <Button Content="Z"/>
+                <Button Content="X"/>
+                <Button Content="C"/>
+                <Button Content="V"/>
+                <Button Content="B"/>
+                <Button Content="N"/>
+                <Button Content="M"/>
                 <Button Content=","/>
                 <Button Content="."/>
                 <Button Content="?"/>
-                <Button HorizontalContentAlignment="Right"
+                <Button HorizontalAlignment="Right"
                         Width="80"
                         Content="Shift"/>
             </StackPanel>
@@ -119,7 +141,7 @@
                         Grid.Row="4"
                         Orientation="Horizontal">
                 <Button HorizontalAlignment="Left"
-                        Width="175"
+                        Width="180"
                         Content=" "/>
             </StackPanel>
 
