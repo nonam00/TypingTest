@@ -6,19 +6,63 @@
         xmlns:local="clr-namespace:TypingTest"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <TextBox />
-        <Grid Width="auto"
+    <StackPanel Margin="0 0 0 20"
+                VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock x:Name="speedText"
+                       Margin="10"
+                       FontSize="15"
+                       Text="Speed:"/>
+            <TextBlock x:Name="timeText"
+                       Margin="10"
+                       FontSize="15"
+                       Text="Time:"/>
+        </StackPanel>
+        <TextBox x:Name="input"
+                 Margin="10 10 10 30"
+                 Height="30"
+                 FontSize="20"
+                 VerticalContentAlignment="Center"
+                 PreviewKeyDown="input_KeyDown"/>
+        <Grid Margin="10"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Width="auto"
               Height="auto">
             <Grid.Resources>
+                <ControlTemplate TargetType="Button" x:Key="keyButton">
+                    <Border x:Name="btnBorder"
+                            CornerRadius="4"
+                            BorderBrush="White"
+                            BorderThickness="1"
+                            Background="Black">
+                        <ContentControl Margin="5"
+                                        Width="{TemplateBinding Width}"
+                                        FontSize="15"
+                                        Foreground="White"
+                                        Content="{TemplateBinding Content}">
+                        </ContentControl>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="true">
+                            <Setter TargetName="btnBorder" Property="Background" Value="Gray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
                 <Style TargetType="Button">
                     <Style.Setters>
-                        <Setter Property="Padding" Value="10 10 10 10"/>
-                        <Setter Property="Width" Value="auto"/>
-                        <Setter Property="Height" Value="auto"/>
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Setter Property="Width" Value="35"/>
+                        <Setter Property="Template" Value="{StaticResource keyButton}"/>
+                    </Style.Setters>
+                </Style>
+                <Style TargetType="StackPanel">
+                    <Style.Setters>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
                     </Style.Setters>
                 </Style>
             </Grid.Resources>
+            
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -26,7 +70,9 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0"
+            
+            <StackPanel x:Name="row1"
+                        Grid.Row="0"
                         Orientation="Horizontal">
                 <Button Content="~"/>
                 <Button Content="1"/>
@@ -40,11 +86,86 @@
                 <Button Content="9"/>
                 <Button Content="0"/>
                 <Button Content="-"/>
-                <Button Content="="/>
-                <Button HorizontalAlignment="Left"
+                <Button Content="+"/>
+                <Button HorizontalContentAlignment="Right"
                         Width="75"
                         Content="&lt;-"/>
             </StackPanel>
+            <StackPanel x:Name="row2"
+                        Grid.Row="1"
+                        Orientation="Horizontal">
+                <Button Width="65"
+                        HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Left"
+                        Content="Tab"/>
+                <Button Content="Q"/>
+                <Button Content="W"/>
+                <Button Content="E"/>
+                <Button Content="R"/>
+                <Button Content="T"/>
+                <Button Content="Y"/>
+                <Button Content="U"/>
+                <Button Content="I"/>
+                <Button Content="O"/>
+                <Button Content="P"/>
+                <Button Content="["/>
+                <Button Content="]"/>
+                <Button Content="\"/>
+            </StackPanel>
+            <StackPanel x:Name="row3"
+                        Grid.Row="2"
+                        Orientation="Horizontal">
+                <Button Width="75"
+                        HorizontalContentAlignment="Left"
+                        Content="Caps lock"/>
+                <Button Content="A"/>
+                <Button Content="S"/>
+                <Button Content="D"/>
+                <Button Content="F"/>
+                <Button Content="G"/>
+                <Button Content="H"/>
+                <Button Content="J"/>
+                <Button Content="K"/>
+                <Button Content="L"/>
+                <Button Content=";"/>
+                <Button Content="'"/>
+                <Button HorizontalAlignment="Left"
+                        Width="80"
+                        Content="Enter"/>
+            </StackPanel>
+            <StackPanel x:Name="row4"
+                        Grid.Row="3"
+                        Orientation="Horizontal">
+                <Button Content="Shift"
+                        HorizontalContentAlignment="Left"
+                        Width="85"/>
+                <Button Content="Z"/>
+                <Button Content="X"/>
+                <Button Content="C"/>
+                <Button Content="V"/>
+                <Button Content="B"/>
+                <Button Content="N"/>
+                <Button Content="M"/>
+                <Button Content=","/>
+                <Button Content="."/>
+                <Button Content="?"/>
+                <Button HorizontalAlignment="Right"
+                        Width="80"
+                        Content="Shift"/>
+            </StackPanel>
+            <StackPanel x:Name="row5"
+                        Grid.Row="4"
+                        Orientation="Horizontal">
+                <Button HorizontalAlignment="Left"
+                        Width="180"
+                        Content=" "/>
+            </StackPanel>
+
         </Grid>
+        <Button x:Name="startButton"
+                Margin="20"
+                Height="50"
+                Width="100"
+                Content="Start"/>
     </StackPanel>
 </Window>
