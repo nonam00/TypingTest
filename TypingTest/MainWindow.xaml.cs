@@ -16,6 +16,7 @@ namespace TypingTest
     /// </summary>
     public partial class MainWindow : Window
     {
+        //private IReadOnlyDictionary<string, Button> buttons;
         public MainWindow()
         {
             InitializeComponent();

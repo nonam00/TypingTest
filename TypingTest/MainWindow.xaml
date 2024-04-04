@@ -8,14 +8,21 @@
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
         <TextBox />
-        <Grid Width="auto"
+        <Grid HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Width="auto"
               Height="auto">
             <Grid.Resources>
                 <Style TargetType="Button">
                     <Style.Setters>
                         <Setter Property="Padding" Value="10 10 10 10"/>
-                        <Setter Property="Width" Value="auto"/>
+                        <Setter Property="Width" Value="35"/>
                         <Setter Property="Height" Value="auto"/>
+                    </Style.Setters>
+                </Style>
+                <Style TargetType="StackPanel">
+                    <Style.Setters>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
                     </Style.Setters>
                 </Style>
             </Grid.Resources>
@@ -26,7 +33,8 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0"
+            <StackPanel x:Name="row1"
+                        Grid.Row="0"
                         Orientation="Horizontal">
                 <Button Content="~"/>
                 <Button Content="1"/>
@@ -45,6 +53,76 @@
                         Width="75"
                         Content="&lt;-"/>
             </StackPanel>
+            <StackPanel x:Name="row2"
+                        Grid.Row="1"
+                        Orientation="Horizontal">
+                <Button Width="65"
+                        HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Left"
+                        Content="TAB"/>
+                <Button Content="q"/>
+                <Button Content="w"/>
+                <Button Content="e"/>
+                <Button Content="r"/>
+                <Button Content="t"/>
+                <Button Content="y"/>
+                <Button Content="u"/>
+                <Button Content="i"/>
+                <Button Content="o"/>
+                <Button Content="p"/>
+                <Button Content="["/>
+                <Button Content="]"/>
+                <Button Content="\"/>
+            </StackPanel>
+            <StackPanel x:Name="row3"
+                        Grid.Row="2"
+                        Orientation="Horizontal">
+                <Button Width="75"
+                        HorizontalContentAlignment="Left"
+                        Content="caps lock"/>
+                <Button Content="a"/>
+                <Button Content="s"/>
+                <Button Content="d"/>
+                <Button Content="f"/>
+                <Button Content="g"/>
+                <Button Content="h"/>
+                <Button Content="j"/>
+                <Button Content="k"/>
+                <Button Content="l"/>
+                <Button Content=";"/>
+                <Button Content="'"/>
+                <Button HorizontalAlignment="Left"
+                        Width="80"
+                        Content="Enter"/>
+            </StackPanel>
+            <StackPanel x:Name="row4"
+                        Grid.Row="3"
+                        Orientation="Horizontal">
+                <Button Content="Shift"
+                        HorizontalContentAlignment="Left"
+                        Width="85"/>
+                <Button Content="z"/>
+                <Button Content="x"/>
+                <Button Content="c"/>
+                <Button Content="v"/>
+                <Button Content="b"/>
+                <Button Content="n"/>
+                <Button Content="m"/>
+                <Button Content=","/>
+                <Button Content="."/>
+                <Button Content="?"/>
+                <Button HorizontalContentAlignment="Right"
+                        Width="80"
+                        Content="Shift"/>
+            </StackPanel>
+            <StackPanel x:Name="row5"
+                        Grid.Row="4"
+                        Orientation="Horizontal">
+                <Button HorizontalAlignment="Left"
+                        Width="175"
+                        Content=" "/>
+            </StackPanel>
+
         </Grid>
     </StackPanel>
 </Window>
