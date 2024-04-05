@@ -11,12 +11,13 @@
         <StackPanel Orientation="Horizontal">
             <TextBlock x:Name="speedText"
                        Margin="10"
-                       FontSize="15"
-                       Text="Speed:"/>
+                       FontSize="15"/>
+            <TextBlock x:Name="accuracyText"
+                       Margin="10"
+                       FontSize="15"/>
             <TextBlock x:Name="timeText"
                        Margin="10"
-                       FontSize="15"
-                       Text="Time:"/>
+                       FontSize="15"/>
         </StackPanel>
         <TextBox x:Name="input"
                  IsEnabled="False"
