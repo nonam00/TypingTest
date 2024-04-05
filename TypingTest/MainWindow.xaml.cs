@@ -76,7 +76,8 @@ namespace TypingTest
             // UI reset
             speedText.Text = "";
             accuracyText.Text = "";
-            accuracy = 0;
+            rightSymbolsCount = 0;
+            allSymbolsCount = 0;
             input.IsEnabled = true;
             input.Text = Text;
             input.Focus();
@@ -97,7 +98,6 @@ namespace TypingTest
             {
                 globalTimer.Stop();
                 input.IsEnabled = false;
-                speedText.Text = $"Speed: {rightSymbolsCount} BPM";
                 timeText.Text = "";
                 input.Text = "";
             }
@@ -149,8 +149,14 @@ namespace TypingTest
                 ++rightSymbolsCount;
             }
             ++allSymbolsCount;
+
             accuracy = Math.Round((double)rightSymbolsCount / allSymbolsCount * 100, 1);
             accuracyText.Text = $"Accuracy: {accuracy}%";
+
+            if(timeLeft < 59)
+            {
+                speedText.Text = $"Speed: {Math.Round(rightSymbolsCount / ((60 - ((double)timeLeft)) /60), 1)} BPM";
+            }
         }
 
 
